@@ -28,6 +28,6 @@ jobs:
           
           git add registry.json
           git diff --cached --quiet || (
-            git commit -m "Update registry"
+            git commit -m ":bento: update registry"
             git push
           )
