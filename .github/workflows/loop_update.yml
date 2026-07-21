@@ -1,0 +1,33 @@
+name: Update registry
+on:
+  schedule:
+    - cron: '0 * * * *' # Run every hour
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pdm-project/setup-pdm@v4
+        with:
+          python-version: '3.12'
+      - name: Install Dependencies
+        run: |
+          pdm sync
+      - name: Update Registry
+        run: |
+          pdm run update.py
+
+      - name: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add registry.json
+          git diff --cached --quiet || (
+            git commit -m "Update registry"
+            git push
+          )
