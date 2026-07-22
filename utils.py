@@ -61,37 +61,59 @@ def metadata(*args, **kwargs):
 def parse_metadata(content: str) -> PluginMetadata | None:
     nodes = ast.parse(content)
     for node in ast.walk(nodes):
-        if isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == "metadata":
-            names = []
-            for n in ast.walk(node):
-                if isinstance(n, ast.Name):
-                    names.append(n.id)
-            ans = eval(
-                compile(
-                    ast.Expression(node),
-                    filename="<ast>",
-                    mode="eval"
-                ),
-                {k: object() for k in names} | {"metadata": metadata, "PluginRole": PluginRole},
-            )
-            return ans
-        if isinstance(node, ast.Assign) and isinstance(node.value, ast.Call) and isinstance(node.value.func, ast.Name) and node.value.func.id == "PluginMetadata":
+        if isinstance(node, ast.Call):
+            if (
+                isinstance(node.func, ast.Attribute)
+                and isinstance(node.func.value, ast.Name)
+                and node.func.value.id == "plugin"
+                and node.func.attr == "metadata"
+            ):
+                node = ast.Call(
+                    func=ast.Name(
+                        id="metadata",
+                        ctx=ast.Load(),
+                        lineno=node.func.lineno,
+                        col_offset=node.func.col_offset,
+                    ),
+                    args=node.args,
+                    keywords=node.keywords,
+                    lineno=node.lineno,
+                    col_offset=node.col_offset,
+                )
+            if isinstance(node.func, ast.Name) and node.func.id == "metadata":
+                names = []
+                for n in ast.walk(node):
+                    if isinstance(n, ast.Name):
+                        names.append(n.id)
+                ans = eval(
+                    compile(ast.Expression(node), filename="<ast>", mode="eval"),
+                    {k: object() for k in names} | {"metadata": metadata, "PluginRole": PluginRole},
+                )
+                return ans
+        if (
+            isinstance(node, ast.Assign)
+            and isinstance(node.value, ast.Call)
+            and isinstance(node.value.func, ast.Name)
+            and node.value.func.id == "PluginMetadata"
+        ):
             names = []
             for n in ast.walk(node.value):
                 if isinstance(n, ast.Name):
                     names.append(n.id)
             ans = eval(
-                compile(
-                    ast.Expression(node.value),
-                    filename="<ast>",
-                    mode="eval"
-                ),
+                compile(ast.Expression(node.value), filename="<ast>", mode="eval"),
                 {k: object() for k in names} | {"PluginMetadata": PluginMetadata, "PluginRole": PluginRole},
             )
             return ans
 
 
-def extract_metadata_from_wheel(name: str, wheel_url: str, sha256: str, retries: int = 5, chunk_size: int = 64 * 1024):
+def extract_metadata_from_wheel(
+    name: str,
+    wheel_url: str,
+    sha256: str,
+    retries: int = 5,
+    chunk_size: int = 64 * 1024,
+):
     with tempfile.TemporaryDirectory() as tmp_dir:
         tmp_file_path = Path(f"{tmp_dir}/{name}")
         tmp = tmp_file_path.with_suffix(".whl.part")
@@ -160,8 +182,8 @@ def get_package_info(name: str):
             "name": meta.name if meta else data["name"].replace("entari-plugin-", ""),
             "pip_name": data["name"],
             "version": data["version"],
-            "description":  meta.description if meta and meta.description else data["summary"],
-            "authors": str(data["author_email"] or data["author"]).split(", "),
+            "description": meta.description if meta and meta.description else data["summary"],
+            "authors": str(data["author_email"] or data["author"]).split(","),
             "license": data["license"],
             "homepage": meta.urls["homepage"] if meta and meta.urls else (data["home_page"] or data["project_url"]),
             "tags": data["keywords"].split(", ") if data["keywords"] else [],
