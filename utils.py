@@ -178,16 +178,21 @@ def get_package_info(name: str):
         print("Downloading wheel for:", name)
         meta = extract_metadata_from_wheel(urls[0]["filename"], urls[0]["url"], urls[0]["digests"]["sha256"])
         print("Fetched package info for:", name)
-        tags = data["keywords"].split(", ") if data["keywords"] else []
+        tags = data["keywords"].split(",") if data["keywords"] else []
         tags = [tag.strip() for tag in tags if tag.strip() not in ("entari", "plugin", "entari-plugin")]
+        if meta and meta.urls:
+            homepage = meta.urls.get("homepage") or meta.urls.get("home_page") or meta.urls.get("Homepage") or meta.urls.get("Home-Page")
+        else:
+            project_urls = data.get("project_urls") or {}
+            homepage = project_urls.get("homepage") or project_urls.get("home_page") or project_urls.get("Homepage") or project_urls.get("Home-Page")
         return {
             "name": meta.name if meta else data["name"].replace("entari-plugin-", ""),
             "pip_name": data["name"],
             "version": data["version"],
             "description": meta.description if meta and meta.description else data["summary"],
-            "authors": str(data["author_email"] or data["author"]).split(","),
+            "authors": [author.strip() for author in str(data["author_email"] or data["author"]).split(",") if author.strip()],
             "license": data["license"],
-            "homepage": meta.urls["homepage"] if meta and meta.urls else (data["home_page"] or data["project_url"]),
+            "homepage": homepage or data["project_url"],
             "tags": sorted(tags),
             "last_serial": raw["last_serial"],
         }

@@ -1,5 +1,5 @@
 {
-  "serial": 39244443,
+  "serial": 39231475,
   "plugins": {
     "entari-plugin-arkgacha": {
       "name": "明日方舟抽卡模拟",
@@ -15,15 +15,15 @@
       "last_serial": 38418121
     },
     "entari-plugin-browser": {
-      "name": "browser",
+      "name": "Browser 服务",
       "pip_name": "entari-plugin-browser",
       "version": "0.6.1",
-      "description": "Browser API service for Entari using Playwright",
+      "description": "通用的浏览器服务，可用于网页截图和图片渲染等。使用 Playwright",
       "authors": [
         "RF-Tar-Railt <rf_tar_railt@qq.com>"
       ],
       "license": "MIT",
-      "homepage": "https://pypi.org/project/entari-plugin-browser/",
+      "homepage": "https://github.com/ArcletProject/entari-plugin-browser",
       "tags": [],
       "last_serial": 38371788
     },
@@ -36,20 +36,20 @@
         "KomoriDev <mute231010@gmail.com>"
       ],
       "license": "MIT",
-      "homepage": "https://pypi.org/project/entari-plugin-chronicle/",
+      "homepage": "https://github.com/entanex/entari-plugin-chronicle",
       "tags": [],
       "last_serial": 34403577
     },
     "entari-plugin-database": {
-      "name": "database",
+      "name": "Database 服务",
       "pip_name": "entari-plugin-database",
       "version": "0.3.3",
-      "description": "Entari plugin for SQLAlchemy ORM",
+      "description": "基于 SQLAlchemy 的数据库服务插件",
       "authors": [
         "RF-Tar-Railt <rf_tar_railt@qq.com>"
       ],
       "license": "MIT",
-      "homepage": "https://pypi.org/project/entari-plugin-database/",
+      "homepage": "https://github.com/ArcletProject/entari-plugin-database",
       "tags": [],
       "last_serial": 38445637
     },
@@ -96,15 +96,19 @@
     "entari-plugin-server": {
       "name": "server",
       "pip_name": "entari-plugin-server",
-      "version": "0.7.3",
-      "description": "Entari plugin for running Satori Server",
+      "version": "0.7.4",
+      "description": "为 Entari 提供 Satori 服务器支持，基于此为 Entari 提供 ASGI 服务、适配器连接等功能",
       "authors": [
         "RF-Tar-Railt <rf_tar_railt@qq.com>"
       ],
       "license": "MIT",
-      "homepage": "https://pypi.org/project/entari-plugin-server/",
-      "tags": [],
-      "last_serial": 38801283
+      "homepage": "https://github.com/ArcletProject/entari-plugin-server",
+      "tags": [
+        "adapters",
+        "satori",
+        "server"
+      ],
+      "last_serial": 39246005
     },
     "entari-plugin-tsugu": {
       "name": "entari_plugin_tsugu",
@@ -115,12 +119,11 @@
         "kumoSleeping <zjr2992@outlook.com>"
       ],
       "license": "MIT",
-      "homepage": "https://pypi.org/project/entari-plugin-tsugu/",
+      "homepage": "https://github.com/kumoSleeping/entari-plugin-tsugu",
       "tags": [
-        "entari",
-        "tsugu",
         "bangdream",
-        "bot"
+        "bot",
+        "tsugu"
       ],
       "last_serial": 30957079
     },
@@ -133,7 +136,7 @@
         "KomoriDev  <mute231010@gmail.com>"
       ],
       "license": "MIT",
-      "homepage": "https://pypi.org/project/entari-plugin-user/",
+      "homepage": "https://github.com/netsora/entari-plugin-user",
       "tags": [],
       "last_serial": 37550478
     },
@@ -148,9 +151,9 @@
       "license": "MIT",
       "homepage": "https://github.com/ArcletProject/entari-plugin-webui",
       "tags": [
+        "market",
         "panel",
-        "webui",
-        "market"
+        "webui"
       ],
       "last_serial": 39242149
     }
