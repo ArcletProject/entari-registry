@@ -1,5 +1,5 @@
 {
-  "serial": 39239515,
+  "serial": 39242336,
   "plugins": {
     "entari-plugin-arkgacha": {
       "name": "明日方舟抽卡模拟",
@@ -138,17 +138,21 @@
       "last_serial": 37550478
     },
     "entari-plugin-webui": {
-      "name": "webui",
+      "name": "WebUI 服务",
       "pip_name": "entari-plugin-webui",
-      "version": "1.0.2",
-      "description": "WebUI Plugin for Entari",
+      "version": "1.0.3",
+      "description": "基于 Vite + Vue 3 + Element Plus 的可视化管理面板",
       "authors": [
         "RF-Tar-Railt <rf_tar_railt@qq.com>"
       ],
       "license": "MIT",
-      "homepage": "https://pypi.org/project/entari-plugin-webui/",
-      "tags": [],
-      "last_serial": 38684869
+      "homepage": "https://github.com/ArcletProject/entari-plugin-webui",
+      "tags": [
+        "panel",
+        "webui",
+        "market"
+      ],
+      "last_serial": 39242149
     }
   }
 }

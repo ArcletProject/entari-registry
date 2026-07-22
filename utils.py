@@ -178,6 +178,8 @@ def get_package_info(name: str):
         print("Downloading wheel for:", name)
         meta = extract_metadata_from_wheel(urls[0]["filename"], urls[0]["url"], urls[0]["digests"]["sha256"])
         print("Fetched package info for:", name)
+        tags = data["keywords"].split(", ") if data["keywords"] else []
+        tags = [tag.strip() for tag in tags if tag.strip() not in ("entari", "plugin", "entari-plugin")]
         return {
             "name": meta.name if meta else data["name"].replace("entari-plugin-", ""),
             "pip_name": data["name"],
@@ -186,7 +188,7 @@ def get_package_info(name: str):
             "authors": str(data["author_email"] or data["author"]).split(","),
             "license": data["license"],
             "homepage": meta.urls["homepage"] if meta and meta.urls else (data["home_page"] or data["project_url"]),
-            "tags": data["keywords"].split(", ") if data["keywords"] else [],
+            "tags": sorted(tags),
             "last_serial": raw["last_serial"],
         }
     return None
