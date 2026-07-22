@@ -7,20 +7,6 @@ from utils import get_package_info
 SERVER = xmlrpc.client.ServerProxy("https://pypi.org/pypi")
 
 
-def update_info(src: dict, dst: dict):
-    if dst.get("$keep", False):
-        return dst
-    for key, value in src.items():
-        if key not in dst:
-            dst[key] = value
-        else:
-            if isinstance(value, list):
-                dst[key] = list(set(dst[key]) | set(value))
-            else:
-                dst[key] = value
-    return dst
-
-
 def main():
     with open("registry.json", "r", encoding="utf-8") as f:
         registry = json.load(f)
@@ -45,10 +31,7 @@ def main():
             print("Package not found:", pkg)
             registry["plugins"].pop(pkg, None)
         else:
-            if pkg not in registry["plugins"]:
-                registry["plugins"][pkg] = info
-            else:
-                registry["plugins"][pkg] = update_info(info, registry["plugins"][pkg])
+            registry["plugins"][pkg] = info
 
     registry["serial"] = max_serial
 
