@@ -1,5 +1,5 @@
 {
-  "serial": 39706175,
+  "serial": 39711533,
   "plugins": {
     "entari-plugin-arkgacha": {
       "name": "明日方舟抽卡模拟",
@@ -30,7 +30,7 @@
     "entari-plugin-chronicle": {
       "name": "聊天记录",
       "pip_name": "entari-plugin-chronicle",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "description": "聊天记录持久化",
       "authors": [
         "KomoriDev <mute231010@gmail.com>"
@@ -38,7 +38,7 @@
       "license": "MIT",
       "homepage": "https://github.com/entanex/entari-plugin-chronicle",
       "tags": [],
-      "last_serial": 34403577
+      "last_serial": 39710766
     },
     "entari-plugin-database": {
       "name": "Database 服务",
