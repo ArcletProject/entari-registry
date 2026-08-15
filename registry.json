@@ -1,5 +1,5 @@
 {
-  "serial": 40051509,
+  "serial": 40052373,
   "plugins": {
     "entari-plugin-arkgacha": {
       "name": "明日方舟抽卡模拟",
@@ -17,7 +17,7 @@
     "entari-plugin-browser": {
       "name": "Browser 服务",
       "pip_name": "entari-plugin-browser",
-      "version": "0.6.1",
+      "version": "0.6.2",
       "description": "通用的浏览器服务，可用于网页截图和图片渲染等。使用 Playwright",
       "authors": [
         "RF-Tar-Railt <rf_tar_railt@qq.com>"
@@ -25,7 +25,7 @@
       "license": "MIT",
       "homepage": "https://github.com/ArcletProject/entari-plugin-browser",
       "tags": [],
-      "last_serial": 38371788
+      "last_serial": 40051637
     },
     "entari-plugin-chronicle": {
       "name": "聊天记录",
@@ -96,7 +96,7 @@
     "entari-plugin-server": {
       "name": "server",
       "pip_name": "entari-plugin-server",
-      "version": "0.7.4",
+      "version": "0.7.5",
       "description": "为 Entari 提供 Satori 服务器支持，基于此为 Entari 提供 ASGI 服务、适配器连接等功能",
       "authors": [
         "RF-Tar-Railt <rf_tar_railt@qq.com>"
@@ -108,7 +108,7 @@
         "satori",
         "server"
       ],
-      "last_serial": 39246005
+      "last_serial": 40051561
     },
     "entari-plugin-tsugu": {
       "name": "entari_plugin_tsugu",
