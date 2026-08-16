@@ -1,5 +1,5 @@
 {
-  "serial": 40066307,
+  "serial": 40067517,
   "plugins": {
     "entari-plugin-arkgacha": {
       "name": "明日方舟抽卡模拟",
@@ -43,7 +43,7 @@
     "entari-plugin-database": {
       "name": "Database 服务",
       "pip_name": "entari-plugin-database",
-      "version": "0.3.3",
+      "version": "0.3.4",
       "description": "基于 SQLAlchemy 的数据库服务插件",
       "authors": [
         "RF-Tar-Railt <rf_tar_railt@qq.com>"
@@ -51,7 +51,7 @@
       "license": "MIT",
       "homepage": "https://github.com/ArcletProject/entari-plugin-database",
       "tags": [],
-      "last_serial": 38445637
+      "last_serial": 40066796
     },
     "entari-plugin-hyw": {
       "name": "hyw",
@@ -155,7 +155,7 @@
         "panel",
         "webui"
       ],
-      "last_serial": 39242149
+      "last_serial": 40067101
     },
     "entari-plugin-htmlrender": {
       "name": "htmlrender",
