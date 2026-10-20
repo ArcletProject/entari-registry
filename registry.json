@@ -1,5 +1,5 @@
 {
-  "serial": 42472386,
+  "serial": 42482917,
   "plugins": {
     "entari-plugin-arkgacha": {
       "name": "明日方舟抽卡模拟",
@@ -96,7 +96,7 @@
     "entari-plugin-server": {
       "name": "server",
       "pip_name": "entari-plugin-server",
-      "version": "0.7.5",
+      "version": "0.8.0",
       "description": "为 Entari 提供 Satori 服务器支持，基于此为 Entari 提供 ASGI 服务、适配器连接等功能",
       "authors": [
         "RF-Tar-Railt <rf_tar_railt@qq.com>"
@@ -108,7 +108,7 @@
         "satori",
         "server"
       ],
-      "last_serial": 40051561
+      "last_serial": 42481408
     },
     "entari-plugin-tsugu": {
       "name": "entari_plugin_tsugu",
