@@ -1,5 +1,5 @@
 {
-  "serial": 42570405,
+  "serial": 42579986,
   "plugins": {
     "entari-plugin-arkgacha": {
       "name": "明日方舟抽卡模拟",
@@ -69,7 +69,7 @@
     "entari-plugin-llm": {
       "name": "LLM 工具箱",
       "pip_name": "entari-plugin-llm",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "description": "一个通用的 LLM 工具箱插件，提供了丰富的工具和模型配置选项，支持多种 LLM 模型。",
       "authors": [
         "RF-Tar-Railt <rf_tar_railt@qq.com>",
@@ -78,7 +78,7 @@
       "license": "MIT",
       "homepage": "https://github.com/ArcletProject/entari-plugin-llm",
       "tags": [],
-      "last_serial": 42424424
+      "last_serial": 42575210
     },
     "entari-plugin-permission": {
       "name": "权限",
