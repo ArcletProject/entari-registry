@@ -1,10 +1,10 @@
 {
-  "serial": 42579986,
+  "serial": 42595095,
   "plugins": {
     "entari-plugin-arkgacha": {
       "name": "明日方舟抽卡模拟",
       "pip_name": "entari-plugin-arkgacha",
-      "version": "0.5.3",
+      "version": "0.6.0",
       "description": "明模拟日方舟抽卡功能，支持模拟十连",
       "authors": [
         "RF-Tar-Railt <rf_tar_railt@qq.com>"
@@ -12,7 +12,7 @@
       "license": "MIT",
       "homepage": "https://github.com/ArcletProject/entari-plugin-arkgacha",
       "tags": [],
-      "last_serial": 38418121
+      "last_serial": 42584630
     },
     "entari-plugin-browser": {
       "name": "Browser 服务",
