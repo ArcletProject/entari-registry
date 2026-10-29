@@ -1,5 +1,5 @@
 {
-  "serial": 42894942,
+  "serial": 42907353,
   "plugins": {
     "entari-plugin-arkgacha": {
       "name": "明日方舟抽卡模拟",
@@ -78,7 +78,7 @@
       "license": "MIT",
       "homepage": "https://github.com/ArcletProject/entari-plugin-llm",
       "tags": [],
-      "last_serial": 42861673
+      "last_serial": 42901363
     },
     "entari-plugin-permission": {
       "name": "权限",
